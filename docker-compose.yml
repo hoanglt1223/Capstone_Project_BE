@@ -1,0 +1,34 @@
+version: '3.7'
+networks: 
+  set2020-network:
+    driver: bridge
+services:
+  main-api:
+    build: .
+    ports:
+      - 8080:8080
+    depends_on:
+      - database
+    networks:
+      - set2020-network
+
+  database:
+    container_name: $DATABASE_TYPE
+    image: $DATABASE_TYPE # postgres or mongo
+    ports:
+      - $DATABASE_PORT
+    environment:
+      POSTGRES_DB: $DATABASE_NAME
+      POSTGRES_USER: $DATABASE_USERNAME
+      POSTGRES_PASSWORD: $DATABASE_PASSWORD
+      PGDATA: /data/$DATABASE_TYPE
+      # MONGODB_DB: $DATABASE_NAME
+      # MONGODB_USER: $DATABASE_USERNAME
+      # MONGODB_PASSWORD: $DATABASE_PASSWORD
+    volumes:
+      - ./storages/data/db:/data/db
+    ports:
+      - 5432:5432
+    networks:
+      - set2020-network
+
