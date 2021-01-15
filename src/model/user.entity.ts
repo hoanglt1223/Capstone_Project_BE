@@ -1,8 +1,22 @@
-import {Entity, PrimaryGeneratedColumn, Column, UpdateDateColumn, CreateDateColumn} from "typeorm";
-import { BaseEntity } from './base.entity';
+import {Entity, Column, BaseEntity, CreateDateColumn, PrimaryGeneratedColumn, UpdateDateColumn} from "typeorm";
 
 @Entity()
 export class User extends BaseEntity {
+    @PrimaryGeneratedColumn('uuid')
+    id: string;
+
+    @CreateDateColumn({ 
+      type: 'timestamptz', 
+      default: () => 'CURRENT_TIMESTAMP' 
+    })
+    createdAt: Date;
+
+    @UpdateDateColumn({ 
+      type: 'timestamptz', 
+      default: () => 'CURRENT_TIMESTAMP' 
+    })
+    updatedAt: Date;
+
     @Column()
     username: string;
 
