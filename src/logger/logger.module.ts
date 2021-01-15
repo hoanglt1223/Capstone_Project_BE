@@ -4,6 +4,6 @@ import { LoggerService } from './custom.logger'
 @Global()
 @Module({
   providers: [LoggerService],
-  exports: [LoggerService]
+  exports: [LoggerService],
 })
 export class LoggerModule {}

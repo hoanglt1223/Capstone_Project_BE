@@ -4,5 +4,5 @@ export default (): Record<string, any> => ({
   databasePort: parseInt(process.env.DATABASE_PORT, 10) || 5432,
   databaseUsername: process.env.DATABASE_USERNAME,
   databasePassword: process.env.DATABASE_PASSWORD,
-  databaseName: process.env.DATABASE_NAME
+  databaseName: process.env.DATABASE_NAME,
 })

@@ -9,7 +9,10 @@ import { AuthUser } from '../decorators/auth.user.decorator'
 
 @Controller('auth')
 export class AuthController {
-  constructor(private readonly authService: AuthService, private readonly userService: UserService) {}
+  constructor(
+    private readonly authService: AuthService,
+    private readonly userService: UserService,
+  ) {}
 
   @UseGuards(LocalAuthGuard)
   @Post('/login')
@@ -24,7 +27,7 @@ export class AuthController {
 
     return {
       ...plainToClass(User, user),
-      authUser
+      authUser,
     }
   }
 }

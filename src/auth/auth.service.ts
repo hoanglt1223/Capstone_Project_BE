@@ -10,7 +10,7 @@ export class AuthService {
   constructor(
     private readonly userService: UserService,
     private readonly jwtService: JwtService,
-    private readonly configService: ConfigService
+    private readonly configService: ConfigService,
   ) {}
 
   async validateUser(email: string, password: string): Promise<User> {
@@ -30,13 +30,13 @@ export class AuthService {
   async generateJwtToken(user: User): Promise<{ accessToken: string }> {
     const payload = {
       email: user.email,
-      sub: user.id
+      sub: user.id,
     }
 
     return {
       accessToken: await this.jwtService.signAsync(payload, {
-        expiresIn: this.configService.get<string>('jwtExpiresIn')
-      })
+        expiresIn: this.configService.get<string>('jwtExpiresIn'),
+      }),
     }
   }
 }

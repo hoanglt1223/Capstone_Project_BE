@@ -1,4 +1,10 @@
-import { IsBoolean, IsNotEmpty, IsOptional, Length, Validate } from 'class-validator'
+import {
+  IsBoolean,
+  IsNotEmpty,
+  IsOptional,
+  Length,
+  Validate,
+} from 'class-validator'
 import { PasswordConfirmValidator } from '@validators/password-confirm.validator'
 
 export class UpdateUserDto {

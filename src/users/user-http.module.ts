@@ -9,6 +9,6 @@ import { LoggerService } from '../logger/custom.logger'
   imports: [UserModule, ConfigService, LoggerService],
   providers: [UserService],
   exports: [UserService],
-  controllers: [UserController]
+  controllers: [UserController],
 })
 export class UserHttpModule {}

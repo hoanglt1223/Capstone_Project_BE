@@ -1,4 +1,8 @@
-import { ValidationArguments, ValidatorConstraint, ValidatorConstraintInterface } from 'class-validator'
+import {
+  ValidationArguments,
+  ValidatorConstraint,
+  ValidatorConstraintInterface,
+} from 'class-validator'
 import { Injectable } from '@nestjs/common'
 import { UserService } from '../users/user.service'
 
@@ -12,7 +16,7 @@ export class UniqueEmailValidator implements ValidatorConstraintInterface {
   }
 
   async validate(
-    value: any
+    value: any,
     // validationArguments?: ValidationArguments,
   ): Promise<boolean> {
     const result = await this.userService.findByEmail(value)

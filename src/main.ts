@@ -17,7 +17,7 @@ async function bootstrap() {
     new DocumentBuilder()
       .setTitle('User API')
       .setDescription('My User API')
-      .build()
+      .build(),
   )
   SwaggerModule.setup('api', app, document)
   app.useGlobalInterceptors(new ResponseTransformInterceptor())

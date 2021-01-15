@@ -1,4 +1,10 @@
-import { ArgumentsHost, Catch, ExceptionFilter, HttpException, HttpStatus } from '@nestjs/common'
+import {
+  ArgumentsHost,
+  Catch,
+  ExceptionFilter,
+  HttpException,
+  HttpStatus,
+} from '@nestjs/common'
 import { LoggerService } from '../logger/custom.logger'
 import { HttpArgumentsHost } from '@nestjs/common/interfaces/features/arguments-host.interface'
 import { Response } from 'express'
@@ -8,7 +14,10 @@ import { QueryFailedError } from 'typeorm'
 export class AllExceptionFilter implements ExceptionFilter {
   constructor(private logger: LoggerService) {}
 
-  private static handleResponse(response: Response, exception: HttpException | QueryFailedError | Error): void {
+  private static handleResponse(
+    response: Response,
+    exception: HttpException | QueryFailedError | Error,
+  ): void {
     let responseBody: any = { message: 'Internal server error' }
     let statusCode = HttpStatus.INTERNAL_SERVER_ERROR
 
@@ -19,12 +28,12 @@ export class AllExceptionFilter implements ExceptionFilter {
       statusCode = HttpStatus.BAD_REQUEST
       responseBody = {
         statusCode: statusCode,
-        message: exception.message
+        message: exception.message,
       }
     } else if (exception instanceof Error) {
       responseBody = {
         statusCode: statusCode,
-        message: exception.stack
+        message: exception.stack,
       }
     }
 
@@ -42,7 +51,9 @@ export class AllExceptionFilter implements ExceptionFilter {
     AllExceptionFilter.handleResponse(response, exception)
   }
 
-  private handleMessage(exception: HttpException | QueryFailedError | Error): void {
+  private handleMessage(
+    exception: HttpException | QueryFailedError | Error,
+  ): void {
     let message = 'Internal Server Error'
 
     if (exception instanceof HttpException) {

@@ -18,21 +18,21 @@ import databaseConfig from '@config/database.config'
   imports: [
     ConfigModule.forRoot({
       isGlobal: true,
-      load: [appConfig, databaseConfig, authConfig]
+      load: [appConfig, databaseConfig, authConfig],
     }),
     LoggerModule,
     UserHttpModule,
     UserModule,
     AuthModule,
     ValidatorModule,
-    TypeOrmModule.forRoot(configService.getTypeOrmConfig())
+    TypeOrmModule.forRoot(configService.getTypeOrmConfig()),
   ],
   controllers: [],
   providers: [
     {
       provide: APP_FILTER,
-      useClass: AllExceptionFilter
-    }
-  ]
+      useClass: AllExceptionFilter,
+    },
+  ],
 })
 export class AppModule {}

@@ -1,4 +1,12 @@
-import { BaseEntity, Column, CreateDateColumn, Entity, PrimaryGeneratedColumn, Unique, UpdateDateColumn } from 'typeorm'
+import {
+  BaseEntity,
+  Column,
+  CreateDateColumn,
+  Entity,
+  PrimaryGeneratedColumn,
+  Unique,
+  UpdateDateColumn,
+} from 'typeorm'
 import { Exclude, Expose } from 'class-transformer'
 
 @Entity({ name: 'users' })
@@ -25,13 +33,13 @@ export class User extends BaseEntity {
 
   @CreateDateColumn({
     default: `now()`,
-    nullable: true
+    nullable: true,
   })
   createdAt: string
 
   @UpdateDateColumn({
     default: `now()`,
-    nullable: true
+    nullable: true,
   })
   updatedAt: string
 

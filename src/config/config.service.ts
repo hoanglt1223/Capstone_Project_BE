@@ -46,10 +46,10 @@ class ConfigService {
       migrations: ['src/migration/*.ts'],
 
       cli: {
-        migrationsDir: 'src/migration'
+        migrationsDir: 'src/migration',
       },
 
-      ssl: this.isProduction()
+      ssl: this.isProduction(),
     }
   }
 }
@@ -59,7 +59,7 @@ const configService = new ConfigService(process.env).ensureValues([
   'POSTGRES_PORT',
   'POSTGRES_USER',
   'POSTGRES_PASSWORD',
-  'POSTGRES_DATABASE'
+  'POSTGRES_DATABASE',
 ])
 
 export { configService }

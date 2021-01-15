@@ -9,7 +9,7 @@ import {
   Post,
   Put,
   UseGuards,
-  UseInterceptors
+  UseInterceptors,
 } from '@nestjs/common'
 import { User } from './user.entity'
 import { UserService } from './user.service'
@@ -50,7 +50,10 @@ export class UserController {
 
   @Post('/create')
   async create(@Body() userData: CreateUserDto): Promise<User> {
-    console.log('TCL ~ file: user.controller.ts ~ line 52 ~ UserController ~ create ~ userData', userData)
+    console.log(
+      'TCL ~ file: user.controller.ts ~ line 52 ~ UserController ~ create ~ userData',
+      userData,
+    )
     const createdUser = await this.userService.store(userData)
 
     return plainToClass(User, createdUser)
@@ -58,7 +61,10 @@ export class UserController {
 
   @UseGuards(JwtAuthGuard)
   @Put('/:id')
-  update(@Param('id') id: EntityId, @Body() userData: UpdateUserDto): Promise<User> {
+  update(
+    @Param('id') id: EntityId,
+    @Body() userData: UpdateUserDto,
+  ): Promise<User> {
     return this.userService.update(id, userData)
   }
 

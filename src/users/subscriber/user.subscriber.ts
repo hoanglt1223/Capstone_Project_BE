@@ -1,4 +1,9 @@
-import { Connection, EntitySubscriberInterface, EventSubscriber, InsertEvent } from 'typeorm'
+import {
+  Connection,
+  EntitySubscriberInterface,
+  EventSubscriber,
+  InsertEvent,
+} from 'typeorm'
 import { User } from '../user.entity'
 import * as bcrypt from 'bcrypt'
 import { ConfigService } from '@nestjs/config'
