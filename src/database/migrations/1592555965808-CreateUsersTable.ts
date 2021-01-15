@@ -14,7 +14,7 @@ export class CreateUsersTable1592555965808 implements MigrationInterface {
             generationStrategy: 'increment'
           },
           {
-            name: 'userName',
+            name: 'email',
             type: 'varchar',
             isUnique: true
           },
@@ -24,18 +24,18 @@ export class CreateUsersTable1592555965808 implements MigrationInterface {
           },
           {
             name: 'isActive',
-            type: 'tinyInt',
-            default: 1
+            type: 'boolean',
+            default: true
           },
           {
             name: 'createdAt',
-            type: 'datetime',
+            type: 'date',
             default: 'now()',
             isNullable: true
           },
           {
             name: 'updatedAt',
-            type: 'datetime',
+            type: 'date',
             default: 'now()',
             isNullable: true
           }
