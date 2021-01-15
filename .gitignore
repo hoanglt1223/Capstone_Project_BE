@@ -45,3 +45,5 @@ Thumbs.db
 
 # Build
 /.cache
+
+./ormconfig.json

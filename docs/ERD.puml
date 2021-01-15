@@ -1,0 +1,91 @@
+@startuml SET2020
+entity CSSProps {
+  -id: ObjectID <<generated>>
+  --
+  name: string
+}
+entity Components {
+  -id: ObjectID <<generated>>
+  --
+  name: string
+  downloadURL: string
+  cost: string
+  iconURL: string
+  previewURL: string
+  createdAt: Date
+  updatedAt: Date
+  --
+  ~parentID: ObjectID
+  ~projectID: ObjectID
+}
+entity CustomProps {
+  name: string
+  value: string
+}
+entity ComponentProps {
+  value: string
+  --
+  ~ComponentID: ObjectID
+  ~propsID: ObjectID
+}
+entity Project {
+  -id: ObjectID <<generated>>
+  --
+  name: string
+  isPrivate: boolean
+  createdAt: Date
+  updatedAt: Date
+  --
+  ~projectId: ObjectID
+}
+entity ProjectUser {
+  ~projectId: ObjectID
+  ~userId: ObjectID
+}
+entity Users {
+  -id: ObjectID <<generated>>
+  --
+  username: string
+  password: string
+  isInactive: boolean
+  credit: number
+  avatarURL: string
+  createdAt: Date
+  updatedAt: Date
+  --
+  ~paymentID: ObjectID
+}
+entity Payment {
+  -id: ObjectID <<generated>>
+  --
+  type: string
+  createdAt: Date
+  updatedAt: Date
+}
+entity Transaction {
+  -id: ObjectID <<generated>>
+  --
+  amount: string
+  currency: string
+  transactionDate: Date
+  --
+  ~userId: string
+  ~paymentId: string
+}
+CSSProps||--|{ComponentProps
+Components||--|{ComponentProps
+
+CustomProps}|--o|Components
+
+Components||--|{Components
+
+Components||--|{Project
+Users||--|{ProjectUser
+Project||--|{ProjectUser
+
+Users|o--o{Payment
+
+Users||--||Transaction
+Payment||--||Transaction
+
+@enduml
