@@ -1,15 +1,46 @@
 {
   "compilerOptions": {
+    "incremental": false,
     "module": "commonjs",
+    "target": "es6",
+    // path to output directory
+    "outDir": "./dist",
+    // enable strict null checks as a best practice
+    // "strictNullChecks": true,
+    // Search under node_modules for non-relative imports.
+    "moduleResolution": "node",
+    // Process & infer types from .js files.
+    "allowJs": false,
+    // Don't emit; allow Babel to transform files.
+    // "noEmit": true,
+    // Import non-ES modules as default imports.
+    "strict": false,
+    "esModuleInterop": true,
     "declaration": true,
     "removeComments": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "allowSyntheticDefaultImports": true,
-    "target": "es2017",
     "sourceMap": true,
-    "outDir": "./dist",
     "baseUrl": "./",
-    "incremental": true
+    // "module": "esnext",
+    // "alwaysStrict": true,
+    "allowUnreachableCode": false,
+    // "noImplicitAny": true,
+    // "noImplicitThis": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "forceConsistentCasingInFileNames": true,
+    "importHelpers": true,
+    "paths": {
+      "@config/*": [
+        "src/config/*"
+      ],
+      "@validators/*": [
+        "src/validators/*"
+      ]
+    }
   }
 }

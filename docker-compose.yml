@@ -1,0 +1,40 @@
+version: '3.7'
+
+services:
+  # workspace:
+  #   build:
+  #     context: .
+  #     dockerfile: docker/debug/node/Dockerfile
+  #   image: node
+  #   restart: on-failure
+  #   container_name: node
+  #   ports:
+  #     - '3000:3000'
+  #   volumes:
+  #     - ./:/usr/src/app
+  #     - /usr/src/app/node_modules
+  #   env_file:
+  #     - .env
+  #   networks:
+  #     - internal
+  #   tty: true
+  #   stdin_open: true
+  #   depends_on:
+  #     - database-postgres
+  database-postgres:
+    image: postgres
+    container_name: set2020db
+    environment:
+      # POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 123123123
+      POSTGRES_DATABASE: set2020db
+    ports:
+      - "5432:5432"
+    volumes:
+      - .data:/var/lib/db
+    networks:
+      - internal
+networks:
+  internal:
+    name: internal
+    driver: bridge

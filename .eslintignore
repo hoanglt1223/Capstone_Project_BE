@@ -1,0 +1,6 @@
+node_modules/
+dist/
+coverage/
+.eslintrc.js
+dist
+node_modules
