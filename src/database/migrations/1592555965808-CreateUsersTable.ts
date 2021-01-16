@@ -19,13 +19,29 @@ export class CreateUsersTable1592555965808 implements MigrationInterface {
             isUnique: true,
           },
           {
+            name: 'name',
+            type: 'varchar',
+            isNullable: true,
+          },
+          {
             name: 'password',
             type: 'varchar',
           },
           {
-            name: 'isActive',
+            name: 'avatarURL',
+            type: 'varchar',
+            isNullable: true,
+          },
+          {
+            name: 'credit',
+            type: 'varchar',
+            isNullable: true,
+          },
+          {
+            name: 'isInactive',
             type: 'boolean',
-            default: true,
+            default: false,
+            isNullable: true,
           },
           {
             name: 'createdAt',

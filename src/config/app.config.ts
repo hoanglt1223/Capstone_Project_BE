@@ -1,5 +1,5 @@
 export default (): Record<string, any> => ({
-  port: parseInt(process.env.PORT, 10) || 3000,
+  port: parseInt(process.env.PORT, 10) || 3001,
   bcryptSalt: parseInt(process.env.BCRYPT_SALT, 10) || 10,
   minPasswordLength: 8,
   maxPasswordLength: 24,
