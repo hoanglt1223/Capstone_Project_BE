@@ -9,10 +9,7 @@ import { PasswordConfirmValidator } from '@validators/password-confirm.validator
 
 export class UpdateUserDto {
   @IsOptional()
-  firstName: string
-
-  @IsOptional()
-  lastName: string
+  name: string
 
   @IsOptional()
   @IsNotEmpty()
@@ -26,5 +23,5 @@ export class UpdateUserDto {
 
   @IsOptional()
   @IsBoolean()
-  isActive: boolean
+  isInactive: boolean
 }
