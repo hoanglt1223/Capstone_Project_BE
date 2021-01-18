@@ -11,28 +11,28 @@ import {
   // UseGuards,
   UseInterceptors,
 } from '@nestjs/common'
-import { Project } from './project.entity'
-import { ProjectService } from './project.service'
-import { EntityId } from 'typeorm/repository/EntityId'
 import { plainToClass } from 'class-transformer'
 import { DeleteResult } from 'typeorm'
-import { CreateTransactionDto } from 'src/transaction/dto/create.transaction.dto'
+import { EntityId } from 'typeorm/repository/EntityId'
+import { CreatePaymentDto } from './dto/create.project.dto'
 // import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard'
+import { Payment } from './payment.entity'
+import { PaymentService } from './payment.service'
 
 @UseInterceptors(ClassSerializerInterceptor)
-@Controller('projects')
-export class ProjectController {
-  constructor(private readonly projectService: ProjectService) {}
+@Controller('payment')
+export class PaymentController {
+  constructor(private readonly projectService: PaymentService) {}
 
   // @UseGuards(JwtAuthGuard)
   @Get()
-  index(): Promise<Project[]> {
+  index(): Promise<Payment[]> {
     return this.projectService.index()
   }
 
   // @UseGuards(JwtAuthGuard)
   @Get('/:id')
-  async show(@Param('id') id: EntityId): Promise<Project> {
+  async show(@Param('id') id: EntityId): Promise<Payment> {
     const project = await this.projectService.findById(id)
     if (!project) {
       throw new NotFoundException()
@@ -42,18 +42,18 @@ export class ProjectController {
   }
 
   @Post('/')
-  async create(@Body() projectData: CreateTransactionDto): Promise<Project> {
-    const createdProject = await this.projectService.store(projectData)
+  async create(@Body() projectData: CreatePaymentDto): Promise<Payment> {
+    const createdPayment = await this.projectService.store(projectData)
 
-    return plainToClass(Project, createdProject)
+    return plainToClass(Payment, createdPayment)
   }
 
   // @UseGuards(JwtAuthGuard)
   @Put('/:id')
   update(
     @Param('id') id: EntityId,
-    @Body() projectData: Project,
-  ): Promise<Project> {
+    @Body() projectData: Payment,
+  ): Promise<Payment> {
     return this.projectService.update(id, projectData)
   }
 
