@@ -7,7 +7,7 @@ import {
 } from 'class-validator'
 import { PasswordConfirmValidator } from '@validators/password-confirm.validator'
 
-export class UpdateTransactionDto {
+export class UpdateProjectDto {
   @IsOptional()
   name: string
 

@@ -16,8 +16,8 @@ import { ProjectService } from './project.service'
 import { EntityId } from 'typeorm/repository/EntityId'
 import { plainToClass } from 'class-transformer'
 import { DeleteResult } from 'typeorm'
-import { CreateTransactionDto } from 'src/transaction/dto/create.transaction.dto'
 import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard'
+import { CreateProjectDto } from './dto/create.project.dto'
 
 @UseInterceptors(ClassSerializerInterceptor)
 @Controller('projects')
@@ -42,7 +42,7 @@ export class ProjectController {
   }
 
   @Post('/')
-  async create(@Body() projectData: CreateTransactionDto): Promise<Project> {
+  async create(@Body() projectData: CreateProjectDto): Promise<Project> {
     const createdProject = await this.projectService.store(projectData)
 
     return plainToClass(Project, createdProject)

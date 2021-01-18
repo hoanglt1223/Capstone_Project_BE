@@ -23,7 +23,6 @@ async function bootstrap() {
   SwaggerModule.setup('api', app, document)
   app.useGlobalInterceptors(new ResponseTransformInterceptor())
   app.useGlobalPipes(new ValidationPipe(ValidationConfig))
-  app.setGlobalPrefix(configService.get<string>('apiPrefix'))
 
   useContainer(app.select(ValidatorModule), { fallbackOnErrors: true })
 
