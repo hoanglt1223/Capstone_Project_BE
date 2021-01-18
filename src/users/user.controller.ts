@@ -50,10 +50,6 @@ export class UserController {
 
   @Post('/create')
   async create(@Body() userData: CreateUserDto): Promise<User> {
-    console.log(
-      'TCL ~ file: user.controller.ts ~ line 52 ~ UserController ~ create ~ userData',
-      userData,
-    )
     const createdUser = await this.userService.store(userData)
 
     return plainToClass(User, createdUser)

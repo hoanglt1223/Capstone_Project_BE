@@ -12,7 +12,13 @@ import { ValidatorModule } from '@validators/validator.module'
 import { TypeOrmModule } from '@nestjs/typeorm'
 import { APP_FILTER } from '@nestjs/core'
 import { UserModule } from './users/user.module'
+import { ProjectModule } from './projects/project.module'
 import databaseConfig from '@config/database.config'
+import { ProjectHttpModule } from './projects/project-http.module'
+import { PaymentModule } from './payment/payment.module'
+import { PaymentHttpModule } from './payment/payment-http.module'
+import { TransactionHttpModule } from './transaction/transaction-http.module'
+import { TransactionModule } from './transaction/transaction.module'
 
 @Module({
   imports: [
@@ -25,6 +31,12 @@ import databaseConfig from '@config/database.config'
     UserModule,
     AuthModule,
     ValidatorModule,
+    ProjectHttpModule,
+    ProjectModule,
+    PaymentHttpModule,
+    PaymentModule,
+    TransactionHttpModule,
+    TransactionModule,
     TypeOrmModule.forRoot(configService.getTypeOrmConfig()),
   ],
   controllers: [],

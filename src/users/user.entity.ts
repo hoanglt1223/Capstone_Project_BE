@@ -7,7 +7,7 @@ import {
   Unique,
   UpdateDateColumn,
 } from 'typeorm'
-import { Exclude, Expose } from 'class-transformer'
+import { Exclude } from 'class-transformer'
 
 @Entity({ name: 'users' })
 export class User extends BaseEntity {
@@ -18,18 +18,21 @@ export class User extends BaseEntity {
   @Column()
   email: string
 
-  @Column()
-  firstName: string
+  @Column({ nullable: true })
+  name: string
 
-  @Column()
-  lastName: string
+  @Column({ nullable: true })
+  avatarURL: string
+
+  @Column({ default: 1000, nullable: true })
+  credit: number
 
   @Exclude()
   @Column()
   password: string
 
-  @Column({ default: true })
-  isActive: boolean
+  @Column({ default: false, nullable: true })
+  isInactive: boolean
 
   @CreateDateColumn({
     default: `now()`,
@@ -46,10 +49,5 @@ export class User extends BaseEntity {
   constructor(partial: Partial<User>) {
     super()
     Object.assign(this, partial)
-  }
-
-  @Expose()
-  get fullName(): string {
-    return `${this.firstName} ${this.lastName}`
   }
 }

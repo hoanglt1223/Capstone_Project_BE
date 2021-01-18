@@ -11,6 +11,7 @@ import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger'
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule)
+  app.enableCors()
   const configService = app.get(ConfigService)
   const document = SwaggerModule.createDocument(
     app,
@@ -22,8 +23,7 @@ async function bootstrap() {
   SwaggerModule.setup('api', app, document)
   app.useGlobalInterceptors(new ResponseTransformInterceptor())
   app.useGlobalPipes(new ValidationPipe(ValidationConfig))
-  //INFO: Will use if we have v2
-  // app.setGlobalPrefix(configService.get<string>('apiPrefix'))
+  app.setGlobalPrefix(configService.get<string>('apiPrefix'))
 
   useContainer(app.select(ValidatorModule), { fallbackOnErrors: true })
 
