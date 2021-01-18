@@ -12,7 +12,9 @@ import { ValidatorModule } from '@validators/validator.module'
 import { TypeOrmModule } from '@nestjs/typeorm'
 import { APP_FILTER } from '@nestjs/core'
 import { UserModule } from './users/user.module'
+import { ProjectModule } from './projects/project.module'
 import databaseConfig from '@config/database.config'
+import { ProjectHttpModule } from './projects/project-http.module'
 
 @Module({
   imports: [
@@ -25,6 +27,8 @@ import databaseConfig from '@config/database.config'
     UserModule,
     AuthModule,
     ValidatorModule,
+    ProjectHttpModule,
+    ProjectModule,
     TypeOrmModule.forRoot(configService.getTypeOrmConfig()),
   ],
   controllers: [],
