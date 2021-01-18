@@ -8,7 +8,7 @@ import {
   Param,
   Post,
   Put,
-  // UseGuards,
+  UseGuards,
   UseInterceptors,
 } from '@nestjs/common'
 import { Project } from './project.entity'
@@ -17,20 +17,20 @@ import { EntityId } from 'typeorm/repository/EntityId'
 import { plainToClass } from 'class-transformer'
 import { DeleteResult } from 'typeorm'
 import { CreateTransactionDto } from 'src/transaction/dto/create.transaction.dto'
-// import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard'
+import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard'
 
 @UseInterceptors(ClassSerializerInterceptor)
 @Controller('projects')
 export class ProjectController {
   constructor(private readonly projectService: ProjectService) {}
 
-  // @UseGuards(JwtAuthGuard)
+  @UseGuards(JwtAuthGuard)
   @Get()
   index(): Promise<Project[]> {
     return this.projectService.index()
   }
 
-  // @UseGuards(JwtAuthGuard)
+  @UseGuards(JwtAuthGuard)
   @Get('/:id')
   async show(@Param('id') id: EntityId): Promise<Project> {
     const project = await this.projectService.findById(id)
@@ -48,7 +48,7 @@ export class ProjectController {
     return plainToClass(Project, createdProject)
   }
 
-  // @UseGuards(JwtAuthGuard)
+  @UseGuards(JwtAuthGuard)
   @Put('/:id')
   update(
     @Param('id') id: EntityId,
@@ -57,7 +57,7 @@ export class ProjectController {
     return this.projectService.update(id, projectData)
   }
 
-  // @UseGuards(JwtAuthGuard)
+  @UseGuards(JwtAuthGuard)
   @Delete('/:id')
   destroy(@Param('id') id: EntityId): Promise<DeleteResult> {
     return this.projectService.delete(id)
