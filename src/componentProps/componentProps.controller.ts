@@ -11,7 +11,7 @@ import {
   UseGuards,
   UseInterceptors,
 } from '@nestjs/common'
-import { ComponentProps } from './componentProps.entity'
+import { ComponentProps } from '../entity/componentProps.entity'
 import { ComponentPropsService } from './componentProps.service'
 import { CreateComponentPropsDto } from './dto/create-componentProps.dto'
 import { EntityId } from 'typeorm/repository/EntityId'
@@ -49,7 +49,9 @@ export class ComponentPropsController {
   }
 
   @Post('/create')
-  async create(@Body() userData: CreateComponentPropsDto): Promise<ComponentProps> {
+  async create(
+    @Body() userData: CreateComponentPropsDto,
+  ): Promise<ComponentProps> {
     const createdUser = await this.componentPropsService.store(userData)
 
     return plainToClass(ComponentProps, createdUser)

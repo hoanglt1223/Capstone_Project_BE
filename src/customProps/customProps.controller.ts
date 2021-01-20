@@ -11,7 +11,7 @@ import {
   UseGuards,
   UseInterceptors,
 } from '@nestjs/common'
-import { CustomProps } from './customProps.entity'
+import { CustomProps } from '../entity/customProps.entity'
 import { CustomPropsService } from './customProps.service'
 import { CreateCustomPropsDto } from './dto/create-customProps.dto'
 import { EntityId } from 'typeorm/repository/EntityId'

@@ -1,5 +1,5 @@
 import { EntityRepository, Repository } from 'typeorm'
-import { ComponentProps } from './componentProps.entity'
+import { ComponentProps } from '../entity/componentProps.entity'
 
 @EntityRepository(ComponentProps)
 export class ComponentPropsRepository extends Repository<ComponentProps> {

@@ -1,5 +1,5 @@
 import { EntityRepository, Repository } from 'typeorm'
-import { CustomProps } from './customProps.entity'
+import { CustomProps } from '../entity/customProps.entity'
 
 @EntityRepository(CustomProps)
 export class CustomPropsRepository extends Repository<CustomProps> {

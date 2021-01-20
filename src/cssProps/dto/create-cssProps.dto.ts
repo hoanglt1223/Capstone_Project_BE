@@ -5,5 +5,4 @@ import {
 export class CreateCssPropsDto {
   @IsNotEmpty()
   name: string
-
 }

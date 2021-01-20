@@ -3,23 +3,19 @@ import {
   Column,
   // CreateDateColumn,
   Entity,
-  // OneToMany,
   PrimaryGeneratedColumn,
   // UpdateDateColumn,
 } from 'typeorm'
 
-
-@Entity({ name: 'cssProps' })
-export class CssProps extends BaseEntity {
+@Entity({ name: 'componentProps' })
+export class ComponentProps extends BaseEntity {
   @PrimaryGeneratedColumn()
   id: number
 
   @Column()
-  name: string
+  value: string
 
-  // @OneToMany(type => )
-
-  constructor(partial: Partial<CssProps>) {
+  constructor(partial: Partial<ComponentProps>) {
     super()
     Object.assign(this, partial)
   }

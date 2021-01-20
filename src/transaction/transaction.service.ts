@@ -1,4 +1,4 @@
-import { Transaction } from './transaction.entity'
+import { Transaction } from '../entity/transaction.entity'
 import { TransactionRepository } from './transaction.repository'
 import { Injectable } from '@nestjs/common'
 import { BaseService } from '../base.service'

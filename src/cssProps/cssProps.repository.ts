@@ -1,5 +1,5 @@
 import { EntityRepository, Repository } from 'typeorm'
-import { CssProps } from './cssProps.entity'
+import { CssProps } from '../entity/cssProps.entity'
 
 @EntityRepository(CssProps)
 export class CssPropsRepository extends Repository<CssProps> {

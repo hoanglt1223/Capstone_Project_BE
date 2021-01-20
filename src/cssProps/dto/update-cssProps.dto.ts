@@ -6,5 +6,4 @@ import {
 export class UpdateCssPropsDto {
   @IsNotEmpty()
   name: string
-
 }

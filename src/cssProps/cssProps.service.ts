@@ -1,4 +1,4 @@
-import { CssProps } from './cssProps.entity'
+import { CssProps } from '../entity/cssProps.entity'
 import { CssPropsRepository } from './cssProps.repository'
 import { Injectable } from '@nestjs/common'
 import { BaseService } from '../base.service'

@@ -1,4 +1,4 @@
-import { User } from './user.entity'
+import { User } from '../entity/user.entity'
 import { UserRepository } from './user.repository'
 import { Injectable } from '@nestjs/common'
 import { BaseService } from '../base.service'

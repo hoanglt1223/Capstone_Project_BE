@@ -16,7 +16,7 @@ import { DeleteResult } from 'typeorm'
 import { EntityId } from 'typeorm/repository/EntityId'
 import { CreatePaymentDto } from './dto/create.project.dto'
 import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard'
-import { Payment } from './payment.entity'
+import { Payment } from '../entity/payment.entity'
 import { PaymentService } from './payment.service'
 
 @UseInterceptors(ClassSerializerInterceptor)

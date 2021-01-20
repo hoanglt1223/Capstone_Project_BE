@@ -11,7 +11,7 @@ import {
   UseGuards,
   UseInterceptors,
 } from '@nestjs/common'
-import { CssProps } from './cssProps.entity'
+import { CssProps } from '../entity/cssProps.entity'
 import { CssPropsService } from './cssProps.service'
 import { CreateCssPropsDto } from './dto/create-cssProps.dto'
 import { EntityId } from 'typeorm/repository/EntityId'

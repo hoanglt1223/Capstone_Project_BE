@@ -4,35 +4,28 @@ import {
   CreateDateColumn,
   Entity,
   PrimaryGeneratedColumn,
-  Unique,
   UpdateDateColumn,
 } from 'typeorm'
-import { Exclude } from 'class-transformer'
 
-@Entity({ name: 'users' })
-export class User extends BaseEntity {
+@Entity({ name: 'components' })
+export class Component extends BaseEntity {
   @PrimaryGeneratedColumn()
   id: number
 
-  @Unique(['email'])
   @Column()
-  email: string
-
-  @Column({ nullable: true })
   name: string
 
   @Column({ nullable: true })
-  avatarURL: string
+  downloadURL: string
 
-  @Column({ default: 1000, nullable: true })
-  credit: number
+  @Column({ nullable: true })
+  price: string
 
-  @Exclude()
-  @Column()
-  password: string
+  @Column({ nullable: true })
+  iconURL: string
 
-  @Column({ default: false, nullable: true })
-  isInactive: boolean
+  @Column({ nullable: true })
+  previewURL: string
 
   @CreateDateColumn({
     default: `now()`,
@@ -46,7 +39,7 @@ export class User extends BaseEntity {
   })
   updatedAt: string
 
-  constructor(partial: Partial<User>) {
+  constructor(partial: Partial<Component>) {
     super()
     Object.assign(this, partial)
   }

@@ -1,11 +1,14 @@
-import { CustomProps } from './customProps.entity'
+import { CustomProps } from '../entity/customProps.entity'
 import { CustomPropsRepository } from './customProps.repository'
 import { Injectable } from '@nestjs/common'
 import { BaseService } from '../base.service'
 import { LoggerService } from '../logger/custom.logger'
 
 @Injectable()
-export class CustomPropsService extends BaseService<CustomProps, CustomPropsRepository> {
+export class CustomPropsService extends BaseService<
+  CustomProps,
+  CustomPropsRepository
+> {
   constructor(repository: CustomPropsRepository, logger: LoggerService) {
     super(repository, logger)
   }

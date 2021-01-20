@@ -1,17 +1,7 @@
-import {
-  BaseEntity,
-  Column,
-  // CreateDateColumn,
-  Entity,
-  // OneToMany,
-  PrimaryGeneratedColumn,
-  // UpdateDateColumn,
-} from 'typeorm'
-
+import { BaseEntity, Column, Entity, PrimaryGeneratedColumn } from 'typeorm'
 
 @Entity({ name: 'customProps' })
 export class CustomProps extends BaseEntity {
-
   @PrimaryGeneratedColumn()
   id: number
 
@@ -20,8 +10,6 @@ export class CustomProps extends BaseEntity {
 
   @Column()
   value: string
-  // @OneToMany(type => )
-
   constructor(partial: Partial<CustomProps>) {
     super()
     Object.assign(this, partial)

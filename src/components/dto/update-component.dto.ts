@@ -1,7 +1,4 @@
-import {
-  IsNotEmpty,
-  IsOptional
-} from 'class-validator'
+import { IsNotEmpty, IsOptional } from 'class-validator'
 
 export class UpdateComponentDto {
   @IsNotEmpty()
@@ -11,7 +8,7 @@ export class UpdateComponentDto {
   downloadURL: string
 
   @IsOptional()
-  cost: string
+  price: string
 
   @IsOptional()
   iconURL: string

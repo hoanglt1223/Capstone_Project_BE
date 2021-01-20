@@ -44,11 +44,13 @@ class ConfigService {
       migrationsTableName: 'migration',
 
       migrations: ['src/migration/*.ts'],
+      synchronize: true,
 
       cli: {
-        migrationsDir: 'src/migration',
+        migrationsDir: 'src/database/migration',
+        entitiesDir: 'src/entity',
       },
-
+      autoLoadEntities: true,
       ssl: this.isProduction(),
     }
   }

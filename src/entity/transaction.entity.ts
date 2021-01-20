@@ -3,19 +3,27 @@ import {
   Column,
   Entity,
   PrimaryGeneratedColumn,
-  Unique,
   UpdateDateColumn,
 } from 'typeorm'
 
-@Entity({ name: 'payment' })
-export class Payment extends BaseEntity {
+@Entity({ name: 'transaction' })
+export class Transaction extends BaseEntity {
   @PrimaryGeneratedColumn()
   id: number
 
-  @Unique(['type'])
   @Column()
-  email: string
+  amount: string
 
+  @Column()
+  currency: string
+
+  @Column()
+  transactionDate: Date
+
+  @UpdateDateColumn({
+    default: `now()`,
+    nullable: true,
+  })
   createdAt: string
 
   @UpdateDateColumn({
@@ -23,8 +31,7 @@ export class Payment extends BaseEntity {
     nullable: true,
   })
   updatedAt: string
-
-  constructor(partial: Partial<Payment>) {
+  constructor(partial: Partial<Transaction>) {
     super()
     Object.assign(this, partial)
   }

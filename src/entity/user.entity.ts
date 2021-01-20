@@ -3,31 +3,36 @@ import {
   Column,
   CreateDateColumn,
   Entity,
-  // OneToMany,
   PrimaryGeneratedColumn,
+  Unique,
   UpdateDateColumn,
 } from 'typeorm'
+import { Exclude } from 'class-transformer'
 
-
-@Entity({ name: 'components' })
-export class Component extends BaseEntity {
+@Entity({ name: 'users' })
+export class User extends BaseEntity {
   @PrimaryGeneratedColumn()
   id: number
 
+  @Unique(['email'])
   @Column()
+  email: string
+
+  @Column({ nullable: true })
   name: string
 
   @Column({ nullable: true })
-  downloadURL: string
+  avatarURL: string
 
-  @Column({ nullable: true })
-  cost: string
+  @Column({ default: 1000, nullable: true })
+  credit: number
 
-  @Column({ nullable: true })
-  iconURL: string
+  @Exclude()
+  @Column()
+  password: string
 
-  @Column({ nullable: true })
-  previewURL: string
+  @Column({ default: false, nullable: true })
+  isInactive: boolean
 
   @CreateDateColumn({
     default: `now()`,
@@ -40,10 +45,7 @@ export class Component extends BaseEntity {
     nullable: true,
   })
   updatedAt: string
-
-  // @OneToMany(type => )
-
-  constructor(partial: Partial<Component>) {
+  constructor(partial: Partial<User>) {
     super()
     Object.assign(this, partial)
   }

@@ -16,7 +16,7 @@ import { DeleteResult } from 'typeorm'
 import { EntityId } from 'typeorm/repository/EntityId'
 import { CreateTransactionDto } from './dto/create.transaction.dto'
 import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard'
-import { Transaction } from './transaction.entity'
+import { Transaction } from '../entity/transaction.entity'
 import { TransactionService } from './transaction.service'
 
 @UseInterceptors(ClassSerializerInterceptor)

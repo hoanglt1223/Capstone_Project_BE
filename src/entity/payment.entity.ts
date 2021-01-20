@@ -1,29 +1,21 @@
 import {
   BaseEntity,
   Column,
-  CreateDateColumn,
   Entity,
   PrimaryGeneratedColumn,
   Unique,
   UpdateDateColumn,
 } from 'typeorm'
 
-@Entity({ name: 'projects' })
-export class Project extends BaseEntity {
+@Entity({ name: 'payment' })
+export class Payment extends BaseEntity {
   @PrimaryGeneratedColumn()
   id: number
 
-  @Unique(['name'])
+  @Unique(['type'])
   @Column()
-  name: string
+  email: string
 
-  @Column({ default: false })
-  isPrivate: boolean
-
-  @CreateDateColumn({
-    default: `now()`,
-    nullable: true,
-  })
   createdAt: string
 
   @UpdateDateColumn({
@@ -31,8 +23,7 @@ export class Project extends BaseEntity {
     nullable: true,
   })
   updatedAt: string
-
-  constructor(partial: Partial<Project>) {
+  constructor(partial: Partial<Payment>) {
     super()
     Object.assign(this, partial)
   }

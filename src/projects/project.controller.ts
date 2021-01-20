@@ -11,7 +11,7 @@ import {
   UseGuards,
   UseInterceptors,
 } from '@nestjs/common'
-import { Project } from './project.entity'
+import { Project } from '../entity/project.entity'
 import { ProjectService } from './project.service'
 import { EntityId } from 'typeorm/repository/EntityId'
 import { plainToClass } from 'class-transformer'
