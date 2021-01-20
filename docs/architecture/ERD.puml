@@ -9,7 +9,7 @@ entity Components {
   --
   name: string
   downloadURL: string
-  cost: string
+  price: string
   iconURL: string
   previewURL: string
   createdAt: Date

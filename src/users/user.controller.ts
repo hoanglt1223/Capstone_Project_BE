@@ -11,7 +11,7 @@ import {
   UseGuards,
   UseInterceptors,
 } from '@nestjs/common'
-import { User } from './user.entity'
+import { User } from '../entity/user.entity'
 import { UserService } from './user.service'
 import { CreateUserDto } from './dto/create-user.dto'
 import { EntityId } from 'typeorm/repository/EntityId'
