@@ -45,7 +45,6 @@ export class User extends BaseEntity {
     nullable: true,
   })
   updatedAt: string
-
   constructor(partial: Partial<User>) {
     super()
     Object.assign(this, partial)

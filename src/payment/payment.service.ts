@@ -1,4 +1,4 @@
-import { Payment } from './payment.entity'
+import { Payment } from '../entity/payment.entity'
 import { PaymentRepository } from './payment.repository'
 import { Injectable } from '@nestjs/common'
 import { BaseService } from '../base.service'

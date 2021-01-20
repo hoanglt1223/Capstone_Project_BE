@@ -23,7 +23,6 @@ export class Payment extends BaseEntity {
     nullable: true,
   })
   updatedAt: string
-
   constructor(partial: Partial<Payment>) {
     super()
     Object.assign(this, partial)

@@ -1,5 +1,5 @@
 import { IsNotEmpty } from 'class-validator'
-export class CreateTransactionDto {
+export class CreateProjectDto {
   @IsNotEmpty()
   name: string
 
