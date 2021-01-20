@@ -3,11 +3,13 @@ import {
   Column,
   CreateDateColumn,
   Entity,
+  OneToOne,
   PrimaryGeneratedColumn,
   Unique,
   UpdateDateColumn,
 } from 'typeorm'
 import { Exclude } from 'class-transformer'
+import { Payment } from './payment.entity'
 
 @Entity({ name: 'users' })
 export class User extends BaseEntity {
@@ -45,6 +47,10 @@ export class User extends BaseEntity {
     nullable: true,
   })
   updatedAt: string
+
+  @OneToOne(() => Payment, (payment: Payment) => payment.id)
+  payment: Payment
+  
   constructor(partial: Partial<User>) {
     super()
     Object.assign(this, partial)

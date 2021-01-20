@@ -19,8 +19,12 @@ entity Components {
   ~projectID: ObjectID
 }
 entity CustomProps {
+  -id: ObjectID <<generated>>
+  --
   name: string
   value: string
+  --
+  ~componentID: ObjectID
 }
 entity ComponentProps {
   value: string
@@ -37,6 +41,8 @@ entity Project {
   updatedAt: Date
 }
 entity ProjectUser {
+  -id: ObjectID <<generated>>
+  --
   ~projectId: ObjectID
   ~userId: ObjectID
 }

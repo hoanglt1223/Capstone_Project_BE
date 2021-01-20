@@ -11,6 +11,7 @@ import { ComponentHttpModule } from './components/component-http.module'
 import { ComponentPropsHttpModule } from './componentProps/componentProps-http.module'
 import { CustomPropsHttpModule } from './customProps/customProps-http.module'
 import { CssPropsHttpModule } from './cssProps/cssProps-http.module'
+import { ProjectUserHttpModule } from './projectUsers/projectUser-http.module'
 import { AuthModule } from './auth/auth.module'
 import { ValidatorModule } from '@validators/validator.module'
 import { TypeOrmModule } from '@nestjs/typeorm'
@@ -21,6 +22,7 @@ import { ComponentModule } from './components/component.module'
 import { ComponentPropsModule } from './componentProps/componentProps.module'
 import { CustomPropsModule } from './customProps/customProps.module'
 import { CssPropsModule } from './cssProps/cssProps.module'
+import { ProjectUserModule } from './projectUsers/projectUser.module'
 // import databaseConfig from '@config/database.config'
 import { ProjectHttpModule } from './projects/project-http.module'
 import { PaymentModule } from './payment/payment.module'
@@ -53,6 +55,8 @@ import { TransactionModule } from './transaction/transaction.module'
     PaymentModule,
     TransactionHttpModule,
     TransactionModule,
+    ProjectUserHttpModule,
+    ProjectUserModule,
     TypeOrmModule.forRoot(configService.getTypeOrmConfig()),
   ],
   controllers: [],
