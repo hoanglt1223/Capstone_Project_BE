@@ -3,10 +3,12 @@ import {
   Column,
   CreateDateColumn,
   Entity,
+  OneToMany,
   PrimaryGeneratedColumn,
   Unique,
   UpdateDateColumn,
 } from 'typeorm'
+import { Component } from './component.entity'
 
 @Entity({ name: 'projects' })
 export class Project extends BaseEntity {
@@ -31,6 +33,13 @@ export class Project extends BaseEntity {
     nullable: true,
   })
   updatedAt: string
+
+  @OneToMany(
+    () => Component,
+    (component: Component) => component.project,
+  )
+  components: Component[]
+
   constructor(partial: Partial<Project>) {
     super()
     Object.assign(this, partial)

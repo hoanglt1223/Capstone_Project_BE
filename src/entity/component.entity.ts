@@ -3,10 +3,11 @@ import {
   Column,
   CreateDateColumn,
   Entity,
+  ManyToOne,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm'
-
+import { Project } from './project.entity'
 @Entity({ name: 'components' })
 export class Component extends BaseEntity {
   @PrimaryGeneratedColumn()
@@ -38,6 +39,18 @@ export class Component extends BaseEntity {
     nullable: true,
   })
   updatedAt: string
+
+  @ManyToOne(
+    () => Project,
+    (project: Project) => project.components,
+  )
+  project: Project
+
+  @ManyToOne(
+    () => Component,
+    (component: Component) => component.id,
+  )
+  parent: Component
 
   constructor(partial: Partial<Component>) {
     super()
